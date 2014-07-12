@@ -17,7 +17,6 @@ The configuration is stored in a JSON file that looks like:
 	},
 	"hashtags": [
 		"GameDev",
-		"GameDevLou",
 		"ScreenshotSaturday",
 	]
 }
