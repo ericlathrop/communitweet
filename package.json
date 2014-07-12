@@ -27,7 +27,6 @@
 		"jshint": "~2.5.2"
 	},
 	"jshintConfig": {
-		"camelcase": true,
 		"curly": true,
 		"eqeqeq": true,
 		"forin": true,
