@@ -1,7 +1,7 @@
 {
 	"name": "communitweet",
-	"version": "0.0.0",
-	"description": "A Twitter bot that retweets tweets that appear in your timeline that contain desired hash tags.",
+	"version": "0.1.0",
+	"description": "Communitweet creates a central Twitter account for your community by automatically retweeting community members.",
 	"main": "bin/communitweet.js",
 	"bin": "bin/communitweet.js",
 	"preferGlobal": true,

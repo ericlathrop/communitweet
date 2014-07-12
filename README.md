@@ -1,9 +1,11 @@
 # communitweet
 
-Create a central Twitter account for your community using this bot.
+Communitweet creates a central Twitter account for your community by automatically retweeting community members.
 
-Communitweet is a Twitter bot that retweets tweets that appear in your timeline that contain desired hash tags.
-This uses the [Twitter Streaming API](https://dev.twitter.com/docs/api/streaming), which means the retweets should happen almost immediately.
+Communitweet retweets tweets that appear in your timeline that contain hash tags that you specify. 
+As your twitter account follows new members of your community, they become eligible for retweets automatically.
+
+Communitweet uses the [Twitter Streaming API](https://dev.twitter.com/docs/api/streaming), which means the retweets should happen almost immediately.
 
 ## Setup
 
