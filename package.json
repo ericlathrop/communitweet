@@ -1,7 +1,7 @@
 {
 	"name": "retweet-club-members",
 	"version": "0.0.0",
-	"description": "A twitter bot that retweets members of a club",
+	"description": "A Twitter bot that retweets tweets that appear in your timeline that contain desired hash tags.",
 	"main": "lib/index.js",
 	"scripts": {
 		"lint-js": "bash -c \"jshint lib/*.js\"",
