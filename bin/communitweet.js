@@ -6,7 +6,7 @@ var fs = require("fs");
 function getConfig() {
 	var args = process.argv.slice(2);
 	if (args.length !== 1) {
-		console.error("Usage: retweet-club-members config.json");
+		console.error("Usage: communitweet config.json");
 		process.exit(1);
 	}
 	return JSON.parse(fs.readFileSync(args[0], { encoding: "utf8" }));

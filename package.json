@@ -1,6 +1,6 @@
 {
 	"name": "communitweet",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "Communitweet creates a central Twitter account for your community by automatically retweeting community members.",
 	"main": "bin/communitweet.js",
 	"bin": "bin/communitweet.js",
