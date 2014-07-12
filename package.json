@@ -2,9 +2,10 @@
 	"name": "retweet-club-members",
 	"version": "0.0.0",
 	"description": "A twitter bot that retweets members of a club",
-	"main": "index.js",
+	"main": "lib/index.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"lint-js": "bash -c \"jshint lib/*.js\"",
+		"build": "npm run lint-js"
 	},
 	"repository": {
 		"type": "git",
@@ -21,5 +22,33 @@
 	"bugs": {
 		"url": "https://github.com/ericlathrop/retweet-club-members/issues"
 	},
-	"homepage": "https://github.com/ericlathrop/retweet-club-members"
+	"homepage": "https://github.com/ericlathrop/retweet-club-members",
+	"devDependencies": {
+		"jshint": "~2.5.2"
+	},
+	"jshintConfig": {
+		"camelcase": true,
+		"curly": true,
+		"eqeqeq": true,
+		"forin": true,
+		"freeze": true,
+		"immed": true,
+		"indent": 4,
+		"latedef": "nofunc",
+		"newcap": true,
+		"noarg": true,
+		"noempty": true,
+		"nonbsp": true,
+		"nonew": true,
+		"quotmark": "double",
+		"unused": "strict",
+		"trailing": true,
+		"browser": true,
+		"devel": true,
+		"globalstrict": true,
+		"globals": {
+			"module": false,
+			"require": false
+		}
+	}
 }
