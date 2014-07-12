@@ -1,8 +1,10 @@
 {
-	"name": "retweet-club-members",
+	"name": "communitweet",
 	"version": "0.0.0",
 	"description": "A Twitter bot that retweets tweets that appear in your timeline that contain desired hash tags.",
-	"main": "lib/index.js",
+	"main": "bin/communitweet.js",
+	"bin": "bin/communitweet.js",
+	"preferGlobal": true,
 	"scripts": {
 		"lint-js": "bash -c \"jshint lib/*.js\"",
 		"build": "npm run lint-js"
