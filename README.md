@@ -1,4 +1,4 @@
-# communitweet
+# Communitweet
 
 Communitweet creates a central Twitter account for your community by automatically retweeting community members.
 
