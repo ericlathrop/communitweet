@@ -1,0 +1,25 @@
+{
+	"name": "retweet-club-members",
+	"version": "0.0.0",
+	"description": "A twitter bot that retweets members of a club",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/ericlathrop/retweet-club-members.git"
+	},
+	"keywords": [
+		"twitter",
+		"bot",
+		"retweet",
+		"club"
+	],
+	"author": "Eric Lathrop <eric@ericlathrop.com> (http://ericlathrop.com)",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/ericlathrop/retweet-club-members/issues"
+	},
+	"homepage": "https://github.com/ericlathrop/retweet-club-members"
+}
