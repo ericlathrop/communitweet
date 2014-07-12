@@ -9,7 +9,7 @@ function getConfig() {
 		console.error("Usage: retweet-club-members config.json");
 		process.exit(1);
 	}
-	return JSON.parse(fs.readFileSync(args[0], { encoding: 'utf8' }));
+	return JSON.parse(fs.readFileSync(args[0], { encoding: "utf8" }));
 }
 
 var config = getConfig();
