@@ -37,6 +37,7 @@
 		"latedef": "nofunc",
 		"newcap": true,
 		"noarg": true,
+		"node": true,
 		"noempty": true,
 		"nonbsp": true,
 		"nonew": true,
@@ -47,8 +48,6 @@
 		"devel": true,
 		"globalstrict": true,
 		"globals": {
-			"module": false,
-			"require": false
 		}
 	},
 	"dependencies": {
