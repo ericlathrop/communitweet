@@ -6,9 +6,9 @@
 		"access_token_secret": "..."
 	},
 	"hashtags": [
-		"GameDev", 
-		"GameDevLou", 
-		"ScreenshotSaturday", 
+		"GameDev",
+		"GameDevLou",
+		"ScreenshotSaturday",
 		"RTBot" 
 	]
 }
