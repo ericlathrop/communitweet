@@ -1,9 +1,12 @@
 {
 	"name": "communitweet",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"description": "Communitweet creates a central Twitter account for your community by automatically retweeting community members.",
 	"main": "bin/communitweet.js",
-	"bin": "bin/communitweet.js",
+	"bin": {
+		"communitweet": "bin/communitweet.js",
+		"communitweet-setup": "bin/communitweet-setup.js"
+	},
 	"preferGlobal": true,
 	"scripts": {
 		"lint-js": "bash -c \"jshint bin/*.js lib/*.js\"",

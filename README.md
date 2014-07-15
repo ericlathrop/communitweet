@@ -11,9 +11,20 @@ Communitweet uses the [Twitter Streaming API](https://dev.twitter.com/docs/api/s
 
 1. Install [Node.js](http://nodejs.org/)
 2. Run `npm install -g communitweet`
-3. [Create a Twitter app](https://apps.twitter.com/) to get the required API keys for the bot to work.
+3. [Create a Twitter app](https://apps.twitter.com/) to get the required API keys for the bot to work. Give the app "Read and Write" permissions. This requires that your Twitter account has a verified phone number.
 4. Create a configuration file, and name it something like "config.json". The configuration file format is below.
 5. Run `communitweet config.json`
+
+## Multi-account Setup
+
+Twitter requires that you have a phone number for each account, and prohibits you from using the same phone number for multiple accounts. In order to set up Communitweet on mutliple accounts with a single phone number you must perform some additional steps:
+
+1. Set up Communitweet under your main account per the above instructions.
+2. Copy your config.json to secondary.json
+3. Run `communitweet-setup secondary.json`
+4. Open the URL it gives you, and log in with your secondary account
+5. Copy & paste the PIN into the Communitweet pin prompt.
+6. Run `communitweet config.json`
 
 ## Configuration
 
