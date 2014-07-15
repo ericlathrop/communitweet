@@ -6,7 +6,7 @@
 	"bin": "bin/communitweet.js",
 	"preferGlobal": true,
 	"scripts": {
-		"lint-js": "bash -c \"jshint bin/*.js\"",
+		"lint-js": "bash -c \"jshint bin/*.js lib/*.js\"",
 		"build": "npm run lint-js"
 	},
 	"repository": {
@@ -48,10 +48,10 @@
 		"browser": true,
 		"devel": true,
 		"globalstrict": true,
-		"globals": {
-		}
+		"globals": {}
 	},
 	"dependencies": {
+		"oauth": "^0.9.12",
 		"twit": "~1.1.15"
 	}
 }
