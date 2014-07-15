@@ -1,22 +1,11 @@
 #!/usr/bin/env node
 "use strict";
 
-var fs = require("fs");
-
-function getConfig() {
-	var args = process.argv.slice(2);
-	if (args.length !== 1) {
-		console.error("Usage: retweet-club-members config.json");
-		process.exit(1);
-	}
-	return JSON.parse(fs.readFileSync(args[0], { encoding: "utf8" }));
-}
-
-var config = getConfig();
-var keys = config.keys;
+var config = require("../lib/config");
+var config = config.get(config.filename());
 
 var twit = require("twit");
-var t = new twit(keys);
+var t = new twit(config.keys);
 
 var hashtagsToWatch = config.hashtags.map(function(val) {
 	return val.toLowerCase();
