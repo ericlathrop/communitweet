@@ -2,12 +2,12 @@
 "use strict";
 
 var config = require("../lib/config");
-var config = config.get(config.filename());
+var cfg = config.get(config.filename());
 
 var twit = require("twit");
-var t = new twit(config.keys);
+var t = new twit(cfg.keys);
 
-var hashtagsToWatch = config.hashtags.map(function(val) {
+var hashtagsToWatch = cfg.hashtags.map(function(val) {
 	return val.toLowerCase();
 });
 
