@@ -35,6 +35,9 @@ stream.on("tweet", function(tweet) {
 	if (!isFriend) {
 		return;
 	}
+	if (tweet.retweeted_status) {
+		return;
+	}
 
 	console.log("TWEET:", "\"" + tweet.user.name + "\"", "@" + tweet.user.screen_name, tweet.text);
 
