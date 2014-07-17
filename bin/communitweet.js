@@ -11,7 +11,7 @@ var hashtagsToWatch = cfg.hashtags.map(function(val) {
 	return val.toLowerCase();
 });
 
-var friendIds = {};
+var friends = require("../lib/friends");
 
 var myScreenName;
 t.get("account/settings", {}, function(err, data) {
@@ -23,46 +23,61 @@ t.get("account/settings", {}, function(err, data) {
 });
 
 var stream = t.stream("user");
-stream.on("friends", function(friends) {
-	friends = friends.friends;
-	for (var i = 0; i < friends.length; i++) {
-		var friendId = friends[i];
-		friendIds[friendId] = true;
-	}
+stream.on("friends", function(friendIds) {
+	friends.add(friendIds.friends);
 });
 stream.on("tweet", function(tweet) {
-	var isFriend = friendIds[tweet.user.id];
-	if (!isFriend) {
-		return;
-	}
-	if (tweet.retweeted_status) {
+	if (!friends.isFriend(tweet.user.id)) {
 		return;
 	}
 
-	console.log("TWEET:", "\"" + tweet.user.name + "\"", "@" + tweet.user.screen_name, tweet.text);
-
-	var ht = tweet.entities.hashtags;
-	for (var i = 0; i < ht.length; i++) {
-		var tag = ht[i].text.toLowerCase();
-		console.log("HASHTAG:", tag);
-
-		if (hashtagsToWatch.indexOf(tag) !== -1) {
-			console.log("RETWEETING:", tweet.id);
-			retweet(tweet);
-			break;
-		}
+	if (shouldRetweet(tweet, hashtagsToWatch, myScreenName)) {
+		console.log("RETWEETING:", "\"" + tweet.user.name + "\"", "@" + tweet.user.screen_name, tweet.text);
+		retweet(tweet);
 	}
 });
 stream.on("follow", function(follow) {
 	if (myScreenName === follow.source.screen_name.toLowerCase()) {
 		console.log("STARTED FOLLOWING:", follow.target.screen_name);
-		friendIds[follow.target.id] = true;
+		friends.add(follow.target.id);
+	}
+});
+stream.on("unfollow", function(follow) {
+	if (myScreenName === follow.source.screen_name.toLowerCase()) {
+		console.log("UNFOLLOWED:", follow.target.screen_name);
+		friends.remove(follow.target.id);
 	}
 });
 stream.on("disconnect", function(message) {
 	console.error("DISCONNECTED:", message);
 	process.exit();
 });
+
+function shouldRetweet(tweet, hashtags, screenName) {
+	if (isRetweet(tweet)) {
+		return false;
+	}
+	var ht = hasHashtags(tweet, hashtags);
+	var m = doesMentionScreenName(tweet, screenName);
+	return hasHashtags(tweet, hashtags) || doesMentionScreenName(tweet, screenName);
+}
+
+function hasHashtags(tweet, hashtags) {
+	return tweet.entities.hashtags.filter(function(hashtag) {
+		hashtag = hashtag.text.toLowerCase();
+		return hashtags.indexOf(hashtag) !== -1;
+	}).length > 0;
+}
+
+function isRetweet(tweet) {
+	return !!tweet.retweeted_status;
+}
+
+function doesMentionScreenName(tweet, screenName) {
+	return tweet.entities.user_mentions.filter(function(mention) {
+		return mention.screen_name.toLowerCase() === screenName && mention.indices[0] > 0;
+	}).length > 0;
+}
 
 function retweet(tweet) {
 	t.post("statuses/retweet/:id", { id: tweet.id_str  }, function(err) {
